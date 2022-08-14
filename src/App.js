@@ -1,24 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+// inline style
+const estilo = {
+  backgroundColor: '#456',
+  color: '#fff',
+  padding: '10px 15px',
+  margin: '10px 15px',
+}
+
+// inline style con funcion
+const estilo1 = (bg='#456') => ({
+  backgroundColor: bg,
+  color: '#fff',
+  padding: '10px 15px',
+  margin: '10px 15px',
+})
+
+// convinando estilos
+const compuesto = {
+  boxShadow: '0 5px 3px rgba(0,0,0,0.5)',
+}
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello World!<code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //<p style={estilo}>Hello World!</p>
+    //<p style={estilo1('#333')}>Hello World!</p>
+    <p style={{...estilo1('#333'), ...compuesto}}>Hello World!</p>
   );
 }
 
