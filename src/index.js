@@ -11,13 +11,29 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   //</React.StrictMode>
 //);
 
-// formas de crear elementos
-const x = React.createElement('p', null, 'Hello World! - x')
-const y = <p>Hello World! - y</p>
-const Z = () => <p>Hello World! - z</p> //jsx
+// Propiedades en un componente
+
+// children es una propiedad fija, hace referencia a todos los elementos que se pasan
+const Li = ( {children} ) => <li>{children}</li>
+const Lii = ( {children, estado} ) => <li>{children} - {estado}</li>
+const Liii = ( {children, estado, idioma, tipo} ) => {
+  // mostrara los estados por consola
+  console.log(idioma, tipo);
+  return (
+    <li>{children} - {estado}</li>
+  )
+} 
+
+const Z = () => 
+  <ul>
+    <Li>Hello World! - 1</Li>
+    <Lii estado={'2'}>Hello World!</Lii>
+    <Liii
+      estado={'3'} idioma={'Ingles'} tipo={'Saludo'}
+    >Hello World!</Liii>
+    <li>Hello World! - 4</li>
+  </ul>
 root.render(
-  // x
-  // y
   <Z/>
 );
 
