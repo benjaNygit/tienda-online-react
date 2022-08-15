@@ -20,6 +20,11 @@ class Button extends Component {
   componentDidMount() {
     console.log('ComponentDidMount');
   }
+
+  // este metodo solo se ejecuta cuando se actualiza un coponente
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate', prevProps, prevState);
+  }
 }
 
 class App extends Component {
@@ -39,7 +44,7 @@ class App extends Component {
         <Button chanchito='Feliz'/>
         <button
           className={`${this.state.className}`}
-          onClick={() => this.setState({valor: 2})}>
+          onClick={() => this.setState({prop: 1})}>
           Enviar desde App
         </button>
       </div>
