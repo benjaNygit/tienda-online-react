@@ -1,10 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
+import Button from './Button.js'
 
-// usamos estilos importados desde App.css
 const App = () => {
   return (
-    <p className='estilo sombra'>Hello World!</p>
+    <div>
+      <h1>Hello World!</h1>
+      <Button onClick={() => console.log('Hello World!')}>Enviar</Button>
+    </div>
   );
 }
 
