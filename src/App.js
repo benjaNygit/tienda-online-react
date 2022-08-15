@@ -25,6 +25,11 @@ class Button extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate', prevProps, prevState);
   }
+
+  // este metodo se ejecutara cuando el componente sea descompuesto
+  componentWillUnmount() {
+    console.log('componentDidUnmount');
+  }
 }
 
 class App extends Component {
@@ -38,13 +43,19 @@ class App extends Component {
   // o si un componente padre a sido llamado
   render() {
     console.log(this.state);
+
+    // cuando valor deje de ser 3, se dejara de mostrar el componente
+    // aqui se ve otra forma de renderizado condicional
     return (
       <div>
         <p>Hello World!</p>
-        <Button chanchito='Feliz'/>
+        {this.state.valor === 3 
+          ? <Button chanchito='Feliz'/>
+          : null
+        }
         <button
           className={`${this.state.className}`}
-          onClick={() => this.setState({prop: 1})}>
+          onClick={() => this.setState({valor: 1})}>
           Enviar desde App
         </button>
       </div>
