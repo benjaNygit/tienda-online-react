@@ -1,5 +1,27 @@
 import { Component } from 'react'
 
+class Button extends Component {
+  state = {}
+
+  constructor(props) {
+    super(props);
+    console.log('Constructor', props);
+  }
+
+  render() {
+    console.log('Ejecutando metodo render de Button');
+    return (
+      <button>Enviar</button>
+    );
+  }
+
+  // este es mejor investigar sobre el
+  // es lo ultimo que se ejecuta
+  componentDidMount() {
+    console.log('ComponentDidMount');
+  }
+}
+
 class App extends Component {
   // los state los podemos pasar como propiedades a los componentes
   state = {
@@ -14,10 +36,11 @@ class App extends Component {
     return (
       <div>
         <p>Hello World!</p>
+        <Button chanchito='Feliz'/>
         <button
           className={`${this.state.className}`}
           onClick={() => this.setState({valor: 2})}>
-          Enviar
+          Enviar desde App
         </button>
       </div>
     );
