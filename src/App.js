@@ -17,6 +17,17 @@ class App extends Component {
   }
 
   agregarAlCarro = (producto) => {
+    const { carro } = this.state;
+    // busca si hay dos productos con === nombre
+    if (carro.find(x => x.name === producto.name)) {
+      // para el producto que cumple, se le suma 1 a cantidad
+      const newCarro = carro.map(
+        x => x.name === producto.name ? ({...x, cantidad: x.cantidad+1}) : x
+      );
+      return this.setState({ carro: newCarro });
+    }
+
+    // a la estructura de producto existente se le concatena cantidad
     return this.setState({
       carro: this.state.carro.concat({
         ...producto,
@@ -42,7 +53,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;
