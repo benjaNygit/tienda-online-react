@@ -13,7 +13,7 @@ const styles = {
 
 class BubbleAlert extends Component {
   getNumber(number) {
-    if(!number) { return 'a' }
+    if(!number) { return ' ' }
     return number > 9 ? '9+' : number;
   }
 
